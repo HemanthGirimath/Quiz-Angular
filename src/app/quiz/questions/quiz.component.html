@@ -1,0 +1,36 @@
+<div class="fluid-container">
+    <ng-container *ngIf="!quizCompleted">
+        <div class="d-flex justify-content-around py-3">
+            <div class="score">
+                <h3>Points :{{points}}</h3>
+            </div>
+            <div class="questionRemain">
+                <h4>{{currentQuestion+1}} out of {{questions.length}}</h4>
+            </div>
+        </div>
+    <div class="card">
+        <div class="questions" >
+            <h3>{{questions[currentQuestion]?.questionText}}</h3>
+        </div>
+        <div class="options" *ngFor="let q of questions[currentQuestion]?.options">
+            <ol>
+                <li (click)="answer(currentQuestion+1,q)">
+                    <div appChangeBg [isCorrect]="q.correct" class="card">
+                       {{ q.text}}
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    </ng-container >
+
+    <ng-container *ngIf="quizCompleted">
+        <div class="row d-flex justify-content-between">
+            <h1>Congragulations! You have completed the Quiz</h1>
+            <br>
+            <p>Total Questions: {{questions.length}}</p>
+            <p>Total Questions Answered Correct :{{CorrectAnswers}}</p>
+            <p>Total Points : {{points}}</p>
+        </div>
+    </ng-container>
+</div>

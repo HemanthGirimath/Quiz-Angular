@@ -1,0 +1,16 @@
+<div class="containerr">
+    <h2>signup page </h2>
+    <form [formGroup]="signupForm" (submit)="submit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" formControlName="Email"  required>
+            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your Password</mat-label>
+            <input matInput placeholder="pat@example.com" formControlName="Password"  required>
+            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+        <button mat-raised-button color="primary">Submit</button>
+    </form>
+</div>
